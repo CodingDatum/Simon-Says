@@ -13,7 +13,7 @@ var userClickedPattern = [];
 
 ///detect key press to BEGIN GAME
 if(isPlaying === false){
-    $(document).keydown(function(){
+    $(document).on("keydown dblclick", function(){
         isPlaying = true;
         nextSequence();
         level=0;
@@ -45,7 +45,10 @@ function checkAnswers(level){ // level is the index
     if (userClickedPattern[level] === gamePattern[level]){
 
         if(userClickedPattern.length === gamePattern.length){
-
+            
+            // setTimeout(repeatComputerSequence, 500)
+            //repeatComputerSequence();
+            
             setTimeout(function(){
                 nextSequence();
             }, 400);
@@ -105,5 +108,20 @@ function startOver(){
     level = 0;
     isPlaying = false;
     gamePattern = [];
+
+}
+
+function repeatComputerSequence(){
+
+    for(var i = 0 ; i<gamePattern.length; i++){
+
+        var repeatElement = gamePattern[i];
+
+        setTimeout(function(){
+            playSound(repeatElement);
+            animateButton(repeatElement);
+        }, 800);
+        
+    };
 
 }
