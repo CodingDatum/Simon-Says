@@ -13,7 +13,7 @@ var userClickedPattern = [];
 
 ///detect key press to BEGIN GAME
 if(isPlaying === false){
-    $(document).on("keydown dblclick", function(){
+    $(document).on("keydown taphold", function(){
         isPlaying = true;
         nextSequence();
         level=0;
@@ -46,8 +46,7 @@ function checkAnswers(level){ // level is the index
 
         if(userClickedPattern.length === gamePattern.length){
             
-            // setTimeout(repeatComputerSequence, 500)
-            //repeatComputerSequence();
+            repeatComputerSequence();
             
             setTimeout(function(){
                 nextSequence();
