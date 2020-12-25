@@ -46,7 +46,7 @@ function checkAnswers(level){ // level is the index
 
         if(userClickedPattern.length === gamePattern.length){
             
-            repeatComputerSequence();
+            //repeatComputerSequence();
             
             setTimeout(function(){
                 nextSequence();
